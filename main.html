@@ -6,22 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>操作界面</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" />
-<link href="css/index.css" rel="stylesheet" />
+<link href="css/font-awesome.min.css" rel="stylesheet" />
+<link href="css/main.css" rel="stylesheet" />
 </head>
 
 <body>
 <div class="top">
-        <div class="container">
-                <div class="nav_logo">
-                    <a href="#" class="logo">OA System</a>
-                </div>
+        <div class="container">             
+            <div class="nav_logo">
+                 <a href="#" class="logo">OA System</a>
+            </div>
                 <div class="nav_right">
-                    <a href="javascript:void(0);" onClick="clickLogin()">用户名</a>
-                    <a href="javascript:void(0);" onClick="clickReg()">退出</a>
+                <ul class="nav_btn">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user"></i>
+                            <i class="icon-sort-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">修改信息</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">退出</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-bell-alt"></i>
+                            <i class="icon-sort-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="#">新消息 (0)</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">新邮件 (0)</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                    
                 </div>
         </div>
 </div>
-<iframe src="" name="nav"></iframe>
-<iframe src="" name="page"></iframe>
+<div class="left">
+    <iframe src="nav.html" scrolling="auto"></iframe>
+</div>
+<div class="right">
+    <iframe src="userInfo.html" name="page" scrolling="auto"></iframe>
+</div>
+
+<script src="js/jquery-3.1.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

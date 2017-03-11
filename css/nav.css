@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+*
+{
+	padding:0;
+	margin:0;
+}
+body
+{
+	background:rgb(40,54,67);
+}
+.nav_box
+{
+	width:260px;
+	background:rgb(40,54,67);
+}
+li
+{
+	list-style-type:none;
+	font-size:16px;
+}
+.nav_first_level
+{
+	margin-top:10px;
+}
+.nav_first_level>li
+{
+	border-bottom:1px solid rgba(107, 108, 109, 0.19); 
+}
+.nav_first_level i
+{
+	color:#1cc09f;
+	margin-right:10px;
+}
+.nav_first_level a
+{
+	display:inline-block;
+	width:260px;
+	height:50px;
+	color:#ccc;
+	line-height:50px;
+	padding-left:20px;
+	text-decoration:none;
+}
+.icon_right
+{
+	float:right;
+	padding-top:15px;
+	color:#ccc !important;
+}
+.nav_second_level
+{
+	background:#333;
+}
+.nav_second_level a
+{
+	padding-left:60px;
+}
+.menu_active
+{
+    background:#1cc09f;
+	color:#fff !important;
+}
+.menu_active i
+{
+	color:#fff !important;
+}
