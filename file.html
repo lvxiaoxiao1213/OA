@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>文档</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/buttons.css"  rel="stylesheet" type="text/css"/>
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/jquery-ui-1.10.0.custom.css" rel="stylesheet" type="text/css" />
+<link href="css/file.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery-ui-1.10.4.min.js"></script>
+<script src="js/ajaxfileupload.js"></script>
+<script src="js/file.js"></script>
+</head>
+
+<body>
+	<div class="tips">
+    <!--提示框 -->
+		<div id="message" class="alert alert-danger alert-dismissible"
+			role="alert" style="display:none" onclick="co()">
+			<button type="button" class="close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<strong>Warning!</strong> 文件(文件夹)创建失败,请你更改文件名后再次创建。 File (Folder) to create a failure, please change the file name to create
+			it again
+		</div>
+
+		<div id="returnMessage" class="alert alert-info alert-dismissible"
+			role="alert" style="display:none" onclick="coReturn()">
+			<button type="button" class="close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<strong>提示!</strong>已经到达您所在部门的根文件夹，根据您的权限，无法进入上一级目录。如需进入，请联系管理员。
+			Please contact the administrator.
+		</div>
+		<div id="editMessage" class="alert alert-danger alert-dismissible"
+			role="alert"  style="display:none" onclick="coEdit()">
+			<button type="button" class="close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+			<strong>Warning!</strong>重命名失败，可能是您未输入正确的值，也可能是输入的新建名和已有文件名冲突。当然，最有可能是回收站中有与之同名的文件。
+			Anyway, you failed.
+		</div>
+
+        <!--top -->
+		<div id="topinfo">
+			<div class="navbar-form navbar-left">
+				<div class="form-group">
+					<input type="file" id="upload" name="upload"> </input>
+				</div>
+				<button onclick="return ajaxFileUpload();"
+					class="button button-small button-primary button-circle tip"
+					data-toggle="tooltip" data-placement="bottom" title="Upload Files">
+					<i class="icon-upload-alt"></i>
+				</button>
+			</div>
+
+			<div class="navbar-form navbar-left">
+				<button onclick="folder()"
+					class="button button-small button-highlight  button-circle tip"
+					data-toggle="tooltip" data-placement="bottom" title="Create Folder">
+					<i class="icon-plus-sign"></i>
+				</button>
+				<button id="${sessionScope.directory_id}" onclick="returnLast(this)"
+					class="button button-small button-highlight button-circle tip"
+					data-toggle="tooltip" data-placement="bottom" title="Return super">
+					<i class="icon-reply"></i>
+				</button>
+				<button onclick="file()"
+					class="button button-small button-primary button-circle tip"
+					data-toggle="tooltip" data-placement="bottom" title="Create File">
+					<i class="icon-plus"></i>
+				</button>
+            </div>
+        </div><!--topinfo结束-->
+    </div><!--tips结束-->
+    
+    <!--main-->
+    
+    <div class="main">
+    	<hr>
+        <div class="container-fluid">
+            <div class="">
+                <div class="">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>名称</th>
+                                <th>修改日期</th>
+                                <th>类型</th>
+                                <th>创建者</th>
+                                <th>操作</th>
+                                <th>编辑</th>
+                                <th>删除</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="icon-folder-close-alt icon-large btn-warning"></i></td>
+                                <td></td>
+                                <td>目录</td>
+                                <td></td>
+                                <td>
+                                    <button class="button button-tiny button-primary button-circle" onClick="">
+                                        <i class="icon-repeat"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="button button-tiny button-action button-circle">
+                                        <i class="icon-repeat"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="button button-tiny button-caution button-circle">
+                                        <i class="icon-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="icon-file-alt icon-large btn-primary"></i></td>
+                                <td></td>
+                                <td>文件</td>
+                                <td></td>
+                                <td>
+                                    <form action="">
+                                        <button class="button button-tiny button-primary button-circle">
+                                            <i class="icon-download-alt"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <button class="button button-tiny button-action button-circle">
+                                        <i class="icon-repeat"></i>
+                                    </button>
+                                </td>
+                                <td>
+                                    <button class="button button-tiny button-caution button-circle">
+                                        <i class="icon-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Modal-->
+    
+    <div class="modal fade" id="folder" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">新建文件夹</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                         <input class="form-control" type="text" placeholder="请输入文件夹名" /> <span class="help-block">系统将自动生成文档的创建者、创建时间、文档位置、文档属性信息（文件夹类型的文档或文件类型的文档）。</span>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">新建</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="file" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
+         <div class="modal-dialog" role="document">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <button type="button" class="close" data-dismiss="modal">
+                         <span aria-hidden="true">&times;</span>
+                     </button>
+                     <h4 class="modal-title">新建文件</h4>
+                 </div>
+                 <div class="modal-body">
+                     <form>
+                         <input class="form-control" type="text" placeholder="请输入文件名" /><span class="help-block">txt:文本文档;doc:word文档;xlsx:excel文档</span>
+                     </form>
+                 </div>
+                 <div class="modal-footer">
+                     <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">新建</button>
+                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                 </div>
+             </div>
+         </div>
+    </div>
+</body>
+</html>
