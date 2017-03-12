@@ -110,12 +110,12 @@
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="button button-tiny button-action button-circle">
+                                    <button class="button button-tiny button-action button-circle" onClick="editFo('')">
                                         <i class="icon-repeat"></i>
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="button button-tiny button-caution button-circle">
+                                    <button class="button button-tiny button-caution button-circle" onClick="deleteFo('')">
                                         <i class="icon-trash"></i>
                                     </button>
                                 </td>
@@ -133,12 +133,12 @@
                                     </form>
                                 </td>
                                 <td>
-                                    <button class="button button-tiny button-action button-circle">
+                                    <button class="button button-tiny button-action button-circle" onClick="edit('')">
                                         <i class="icon-repeat"></i>
                                     </button>
                                 </td>
                                 <td>
-                                    <button class="button button-tiny button-caution button-circle">
+                                    <button class="button button-tiny button-caution button-circle" onClick="deleteFi('')">
                                         <i class="icon-trash"></i>
                                     </button>
                                 </td>
@@ -194,6 +194,86 @@
                  </div>
              </div>
          </div>
+    </div>
+    <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModqlLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">重命名</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" id="editinput" class="form-control" aria-describedby="helpBlock" placeholder="新的名称" /><span class="help-block">你可以在这里对文件进行重命名操作，本来是可以进行更多操作的，但是你没有权限</span>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editFo" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModqlLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">重命名</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" id="editinput" class="form-control" aria-describedby="helpBlock" placeholder="新的名称" /><span class="help-block">你可以在这里对文件夹进行重命名操作，本来是可以进行更多操作的，但是你没有权限</span>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteFo" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModqlLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">删除</h4>
+                </div>
+                <div class="modal-body">
+                你确定要删除这个文件夹吗？当然，删除之后可以在回收站找回。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="deleteFi" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModqlLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" type="button" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">删除</h4>
+                </div>
+                <div class="modal-body">
+                你确定要删除这个文件吗？当然，删除之后可以在回收站找回。
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

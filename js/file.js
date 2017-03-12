@@ -2,6 +2,8 @@
 //提示框
 $(function () { $("[data-toggle='tooltip']").tooltip(); });
 //modal
+var edid = 0;
+var deid = 0;
 function folder(){
 	$('#folder').modal({
 		keyboard : false
@@ -11,6 +13,34 @@ function file(){
 	$('#file').modal({
 	    keyboard : false	
 	});
+};
+function edit(editid){
+	$('#edit').modal({
+		keyboard : false
+	});
+	edid = editid;
+	console.log("edid" + edid);
+};
+function editFo(editid){
+	$('#editFo').modal({
+		keyboard : false
+	});
+	edid = editid;
+	console.log("edidFolder" + edid);
+};
+function deleteFo(deleteid){
+	$('#deleteFo').modal({
+		keyboard : false
+	});
+	deid = deleteid;
+	console.log(deid);
+};
+function deleteFi(deleteid){
+	$('#deleteFi').modal({
+		keyboard : false
+	});
+	deid = deleteid;
+	console.log(deid);
 };
 
 //提示创建失败信息
