@@ -69,7 +69,7 @@
 				<div class="form-group">
 					<input type="file" id="upload" name="upload"> </input>
 				</div>
-				<button onclick="return ajaxFileUpload();"
+				<button onclick="ajaxFileUpload()"
 					class="button button-small button-primary button-circle tip"
 					data-toggle="tooltip" data-placement="bottom" title="Upload Files">
 					<i class="icon-upload-alt"></i>
@@ -125,7 +125,7 @@
                                 <td>文件</td>
                                 <td></td>
                                 <td>
-                                    <form action="">
+                                    <form action="" method="post">
                                         <button class="button button-tiny button-primary button-circle">
                                             <i class="icon-download-alt"></i>
                                         </button>

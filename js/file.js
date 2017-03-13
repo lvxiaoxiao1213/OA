@@ -178,7 +178,18 @@ function editFoName(){
 		});
 	}
 };
-
+function ajaxFileUpload(){
+	$.ajaxFileUpload({
+		url : "",
+		secureuri : false,
+		fileElmentId : "upload",//文件上传空间的id属性
+		dataType : "json",
+		success : function(){},
+		error : function(){
+			console.log("error");
+		}
+	});
+};
 
 //提示创建失败信息
 function co() {
