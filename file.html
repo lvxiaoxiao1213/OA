@@ -18,7 +18,7 @@
 </head>
 
 <body>
-	<div class="tips">
+	<div class="tips container">
     <!--提示框 -->
 		<div id="message" class="alert alert-danger alert-dismissible"
 			role="alert" style="display:none" onclick="co()">
@@ -48,24 +48,13 @@
 
         <!--top -->
 		<div id="topinfo">
-			<div class="navbar-form navbar-left">
-				<div class="form-group">
-					<input type="file" id="upload" name="upload"> </input>
-				</div>
-				<button onclick="return ajaxFileUpload();"
-					class="button button-small button-primary button-circle tip"
-					data-toggle="tooltip" data-placement="bottom" title="Upload Files">
-					<i class="icon-upload-alt"></i>
-				</button>
-			</div>
-
-			<div class="navbar-form navbar-left">
+			<div class="navbar-form navbar-right">
 				<button onclick="folder()"
 					class="button button-small button-highlight  button-circle tip"
 					data-toggle="tooltip" data-placement="bottom" title="Create Folder">
 					<i class="icon-plus-sign"></i>
 				</button>
-				<button id="${sessionScope.directory_id}" onclick="returnLast(this)"
+				<button id="" onclick="returnLast(this)"
 					class="button button-small button-highlight button-circle tip"
 					data-toggle="tooltip" data-placement="bottom" title="Return super">
 					<i class="icon-reply"></i>
@@ -76,13 +65,23 @@
 					<i class="icon-plus"></i>
 				</button>
             </div>
+            <div class="navbar-form navbar-right">
+				<div class="form-group">
+					<input type="file" id="upload" name="upload"> </input>
+				</div>
+				<button onclick="return ajaxFileUpload();"
+					class="button button-small button-primary button-circle tip"
+					data-toggle="tooltip" data-placement="bottom" title="Upload Files">
+					<i class="icon-upload-alt"></i>
+				</button>
+			</div>
         </div><!--topinfo结束-->
     </div><!--tips结束-->
     
     <!--main-->
     
     <div class="main">
-    	<hr>
+    <br><hr><br>
         <div class="container-fluid">
             <div class="">
                 <div class="">
@@ -105,8 +104,8 @@
                                 <td>目录</td>
                                 <td></td>
                                 <td>
-                                    <button class="button button-tiny button-primary button-circle" onClick="">
-                                        <i class="icon-repeat"></i>
+                                    <button id="" class="button button-tiny button-primary button-circle" onClick="openFolder(this)">
+                                        <i class="icon-circle-blank"></i>
                                     </button>
                                 </td>
                                 <td>
@@ -164,11 +163,11 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                         <input class="form-control" type="text" placeholder="请输入文件夹名" /> <span class="help-block">系统将自动生成文档的创建者、创建时间、文档位置、文档属性信息（文件夹类型的文档或文件类型的文档）。</span>
+                         <input id="folderName" name="folderName" class="form-control" type="text" placeholder="请输入文件夹名" /> <span class="help-block">系统将自动生成文档的创建者、创建时间、文档位置、文档属性信息（文件夹类型的文档或文件类型的文档）。</span>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">新建</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="createFolder()">新建</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -185,11 +184,11 @@
                  </div>
                  <div class="modal-body">
                      <form>
-                         <input class="form-control" type="text" placeholder="请输入文件名" /><span class="help-block">txt:文本文档;doc:word文档;xlsx:excel文档</span>
+                         <input id="fileName" name="fileName" class="form-control" type="text" placeholder="请输入文件名" /><span class="help-block">txt:文本文档;doc:word文档;xlsx:excel文档</span>
                      </form>
                  </div>
                  <div class="modal-footer">
-                     <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">新建</button>
+                     <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="createFile()">新建</button>
                      <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                  </div>
              </div>
@@ -210,7 +209,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="editName()">确认</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -227,11 +226,11 @@
                 </div>
                 <div class="modal-body">
                     <form>
-                        <input type="text" id="editinput" class="form-control" aria-describedby="helpBlock" placeholder="新的名称" /><span class="help-block">你可以在这里对文件夹进行重命名操作，本来是可以进行更多操作的，但是你没有权限</span>
+                        <input type="text" id="editFoinput" class="form-control" aria-describedby="helpBlock" placeholder="新的名称" /><span class="help-block">你可以在这里对文件夹进行重命名操作，本来是可以进行更多操作的，但是你没有权限</span>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="editFoName()">确认</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -250,7 +249,7 @@
                 你确定要删除这个文件夹吗？当然，删除之后可以在回收站找回。
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="confirmDeleteFo()">确认</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>
@@ -269,7 +268,7 @@
                 你确定要删除这个文件吗？当然，删除之后可以在回收站找回。
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="confirmDeleteFi()">确认</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 </div>
             </div>

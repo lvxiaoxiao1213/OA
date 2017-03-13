@@ -1,2 +1,12 @@
 @charset "utf-8";
 /* CSS Document */
+.tips
+{
+	margin-top:20px;
+}
+hr
+{
+	margin-top:0;
+	margin-bottom:0;
+	width:90%;
+}
