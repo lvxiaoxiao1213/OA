@@ -136,7 +136,6 @@ function editName(){
 	console.log(id);
 	if(input == null || input == ""){
 		document.getElementById('editMessage').style.display = "block";
-		document.getElementById('topinfo').style.display = "none";
 	}else{
 		$.ajax({
 			method : "post",
@@ -161,7 +160,6 @@ function editFoName(){
 	console.log("input: " + input);
 	if(input == null || input == ""){
 		document.getElementById('editMessage').style.display = 'block';
-		document.getElementById('topinfo').style.display = 'none';
 	}else{
 		$.ajax({
 			method : "post",
@@ -178,6 +176,7 @@ function editFoName(){
 		});
 	}
 };
+//上传文件
 function ajaxFileUpload(){
 	$.ajaxFileUpload({
 		url : "",
@@ -190,19 +189,15 @@ function ajaxFileUpload(){
 		}
 	});
 };
-
 //提示创建失败信息
 function co() {
 	document.getElementById("message").style.display = 'none';
-	document.getElementById("topinfo").style.display = 'block';
 }
 //返回父层目录（到头了）
 function coReturn() {
 	document.getElementById("returnMessage").style.display = 'none';
-	document.getElementById("topinfo").style.display = 'block';
 }
 //重命名
 function coEdit() {
 	document.getElementById("editMessage").style.display = 'none';
-	document.getElementById("topinfo").style.display = 'block';
 }
