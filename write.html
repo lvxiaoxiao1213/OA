@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>写信</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/write.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/write.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <form id="sendForm" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <label for="accept" class="control-label col-sm-1">收件人</label>
+                    <div class="col-sm-11">
+                        <input id="accept" class="form-control" name="accept" type="text" placeholder="Address" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="theme" class="control-label col-sm-1">主题</label>
+                    <div class="col-sm-11">
+                        <input id="theme" class="form-control" name="theme" type="text" placeholder="Theme" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content" class="control-label col-sm-1">正文</label>
+                    <div class="col-sm-11">
+                        <textarea id="content" class="form-control" name="content" rows="10" placeholder="Content"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-10">
+                        <button type="button" class="btn btn-success" onClick="savaDraft()">保存草稿</button>
+                        <button type="submit" class="btn btn-info">发送</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-3">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>联系人</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr onClick="clickName('')">
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>   
+</div>
+
+<!--Modal-->
+
+<div class="modal fade" id="sendSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="true">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">发送成功，对方已接收到您的信息。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sendFailure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">发送失败。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="saveSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" dara-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">保存成功，草稿箱中已有保存的内容。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="saveFailure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" dara-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">保存失败。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
