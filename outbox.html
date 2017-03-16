@@ -4,30 +4,28 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>收件箱</title>
+<title>发件箱</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
 <link href="css/buttons.css" rel="stylesheet" type="text/css" />
 <script src="js/jquery-2.2.3.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
-<script src="js/inbox.js"></script>
+<script src="js/outbox.js"></script>
 </head>
 
 <body>
 <div class="container">
-    <div>
-        <div class="page-header">
-            <h2>
-                收件箱<small> In Box</small>
-            </h2>
-        </div>
+    <div class="page-header">
+        <h2>
+            发件箱<small> Out Box</small>
+        </h2>
     </div>
 </div>
 <div class="container-fluid">
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>发件人</th>
+                <th>收件人</th>
                 <th>主题</th>
                 <th>时间</th>
                 <th>查看</th>
@@ -37,34 +35,17 @@
         <tbody>
             <tr>
                 <td>
-                    <i class="icon-envelope-alt icon-large"></i>
-                </td>
-                <td></td>
-                <td></td>
-                <td>
-                    <button class="button button-tiny button-circle button-primary" onClick="boxinUnread('')">
-                        <i class="icon-circle-blank"></i>
-                    </button>
-                </td>
-                <td>
-                    <button class="button button-tiny button-circle button-caution" onClick="deleteInbox('')">
-                        <i class="icon-trash"></i>
-                    </button>
-                </td>
-            </tr>
-            <tr>
-                <td>
                     <i class="icon-envelope icon-large"></i>
                 </td>
                 <td></td>
                 <td></td>
                 <td>
-                    <button class="button button-tiny button-circle button-primary" onClick="boxinRead('')">
+                    <button onClick="boxoutRead('')" type="button" class="button button-tiny button-primary button-circle">
                         <i class="icon-circle-blank"></i>
                     </button>
                 </td>
                 <td>
-                    <button class="button button-tiny button-circle button-caution" onClick="deleteInbox('')">
+                    <button onClick="deleteOutbox('')" type="button" class="button button-tiny button-caution button-circle">
                         <i class="icon-trash"></i>
                     </button>
                 </td>
