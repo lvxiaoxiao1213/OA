@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>废件箱</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/buttons.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/trashbox.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="page-header">
+        <h2>
+            废件箱<small> Spam box</small>
+        </h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>名称</th>
+                <th>删除日期</th>
+                <th>原位置</th>
+                <th>还原</th>
+                <th>彻底删除</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <i class="icon-envelope icon-large"></i>
+                </td>
+                <td></td>
+                <td>收件箱</td>
+                <td>
+                    <button type="button" onClick="recoveryTrash('')" class="button button-tiny button-circle button-primary">
+                        <i class="icon-refresh"></i>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" onClick="deleteTrash('')" class="button button-tiny button-circle button-caution">
+                        <i class="icon-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="icon-envelope icon-large"></i>
+                </td>
+                <td></td>
+                <td>发件箱</td>
+                <td>
+                    <button type="button" onClick="recoveryTrash('')" class="button button-tiny button-circle button-primary">
+                        <i class="icon-refresh"></i>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" onClick="deleteTrash('')" class="button button-tiny button-circle button-caution">
+                        <i class="icon-trash"></i>
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="icon-envelope icon-large"></i>
+                </td>
+                <td></td>
+                <td>草稿箱</td>
+                <td>
+                    <button type="button" onClick="recoveryTrash('')" class="button button-tiny button-circle button-primary">
+                        <i class="icon-refresh"></i>
+                    </button>
+                </td>
+                <td>
+                    <button type="button" onClick="deleteTrash('')" class="button button-tiny button-circle button-caution">
+                        <i class="icon-trash"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
