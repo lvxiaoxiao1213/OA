@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>查看内容</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/buttons.css" rel="stylesheet" type="text/css" />
+<link href="css/write.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/draftRead.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="page-header">
+        <h2>
+            草稿<small> Draft</small>
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+            <form class="form-horizontal" id="sendForm" action="#" method="post">
+                <div class="form-group">
+                    <label for="accept" class="control-label col-sm-1">收件人</label>
+                    <div class="col-sm-11">
+                        <input class="form-control" id="accept" name="accept" value="" />
+                    </div>
+                </div> 
+                <div class="form-group">
+                    <label for="theme" class="control-label col-sm-1">主题</label>
+                    <div class="col-sm-11">
+                        <input class="form-control" id="theme" name="theme" value=""/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="content" class="control-label col-sm-1">正文</label>
+                    <div class="col-sm-11">
+                        <textarea class="form-control" rows="10" id="content" name="content"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-8">
+                        <div onClick="returnDraft()" class="btn btn-default">返回草稿箱</div>
+                        <div onClick="saveDraft('')" class="btn btn-success">保存草稿</div>
+                        <div onClick="sendDraft('a')" class="btn btn-info">发送</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-3">
+            <table class="table table-hover">
+                <thead>
+                    <th>联系人</th>
+                </thead>
+                <tbody>
+                    <tr onClick="addressee('')">
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!--MOdal-->
+
+<div class="modal fade" id="sendFailure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">发送失败。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="winreload()">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sendSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">发送成功，对方已接收到您的消息。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="returnDraft()">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="saveSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">保存成功，草稿箱中已有保存的内容</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="returnDraft()">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="saveFailure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">保存失败</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
