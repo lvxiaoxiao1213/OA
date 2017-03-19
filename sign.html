@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>签到签退管理</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/buttons.css" rel="stylesheet" type="text/css" />
+<link href="css/sign.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/sign.js"></script>
+</head>
+
+<body onLoad="showTime()">
+<div class="container">
+    <div class="page-header">
+        <h2>
+            签到/签退
+            <small> Sign In/Sign Out
+                <div class="navbar_right" id="txt"></div>
+            </small>
+        </h2>
+    </div>
+    <div class="signin">
+        <h4>签到时间:</h4>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                您还未进行今日的签到工作，请先签到
+                <a onClick="signIn()" class="button button-glow button-rounded button-border button-primary sign">签到</a>
+            </div>
+        </div>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <td>签到日期</td>
+                    <td>签到时间</td>
+                    <td>是否迟到</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>迟到|未迟到</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="signout">
+        <h4>签退时间:</h4>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                当您结束今日的工作，请签退<a onClick="signOut()" class="button button-glow button-rounded button-border button-primary sign">签退</a><br>
+                您已经完成签退操作，无法重复签退<br>
+                请您先完成签到操作
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Modal-->
+<div class="modal fade" id="signInSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">签到成功</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="signInFailure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">签到失败</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="signOutSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">签退成功</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="signOutFailure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">签退失败</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="sign" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                   <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">提示:</h4>
+            </div>
+            <div class="modal-body">您还未进行今天的签到，不能进行签退操作。</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
