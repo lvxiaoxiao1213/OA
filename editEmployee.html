@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>修改个人资料</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/buttons.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/editEmployee.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="page-header">
+        <h2>
+            修改资料<small>Edit Profile</small>
+        </h2>
+    </div>
+    <div class="row">
+        <form class="form-horizontal">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="age" class="col-sm-2 control-label">年龄</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="age" name="age" value="" placeholder="age" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="col-sm-2 control-label">性别</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="gender" name="gender" value="" placeholder="gender" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label">住址</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="address" name="address" value="" placeholder="address" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">邮箱</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" id="email" name="email" value="" placeholder="email" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="mobilephone" class="col-sm-2 control-label">手机</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="mobilephone" name="mobilephone" value="" placeholder="mobilephone" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="tel" class="col-sm-2 control-label">固定电话</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="tel" name="tel" value="" placeholder="tel" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="enterTime" class="col-sm-2 control-label">入职时间</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="enterTime" name="enterTime" value="" placeholder="Enter Time" readonly />
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-sm-6">
+                 <div class="form-group">
+                    <label for="offAddress" class="col-sm-2 control-label">办公地点</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="offAddress" name="offAddress" value="" placeholder="office Address" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="offTel" class="col-sm-2 control-label">办公电话</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="offTel" name="offTel" value="" placeholder="office Tel" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="department" class="col-sm-2 control-label">部门</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="department" name="department" value="" placeholder="department" readonly />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="nation" class="col-sm-2 control-label">民族</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="nation" name="nation" value="" placeholder="nation" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="political" class="col-sm-2 control-label">政治面貌</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="political" name="political" value="" placeholder="political" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="marital" class="col-sm-2 control-label">婚姻状况</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="marital" name="marital" value="" placeholder="marital status" />
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="remarks" class="col-sm-2 control-label">备注</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="remarks" name="remarks" value="" placeholder="remarks" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-offset-9">
+        <a onClick="editInformation()" class="button button-primary button-rounded">保存</a>
+        <a href="employee.html" class="button button-caution button-rounded">返回</a>
+    </div>
+</div>
+</body>
+</html>
