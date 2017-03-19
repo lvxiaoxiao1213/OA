@@ -17,60 +17,60 @@
 
 <body>
 <div class="container">
-<div class="form-inline navbar-right">
-    <div class="form-group">
-        <div class="input-append date" id="startDate" data-date="2013-02-21" data-date-format="yyyy-mm-dd">
-            <label for="startDays">起始日期:</label>
-            <input size="16" type="text" class="form-control" id="startDate" name="startDate" readonly placeholder="Start Day" />
-            <span class="add-on">
-                <i class="icon-remove"></i>
-            </span>
-            <span class="add-on">
-                <i class="icon-calendar"></i>
-            </span>
-            <script>
-				$("#startDate").datetimepicker({
-					format : "yyyy-MM-dd",
-					autoclose  : true,
-					todayBtn : true,
-					todayHighlight : true,
-					startDate : "2017-03-19",
-					endDate : "2018-01-01",
-					startView : 2,
-					minView : 2
-				});
-            </script>
+    <div class="form-inline navbar-right">
+        <div class="form-group">
+            <div class="input-append date" id="startDate" data-date="2013-02-21" data-date-format="yyyy-mm-dd">
+                <label for="startDays">起始日期:</label>
+                <input size="16" type="text" class="form-control" id="startDays" name="startDays" readonly placeholder="Start Day" />
+                <span class="add-on">
+                    <i class="icon-remove"></i>
+                </span>
+                <span class="add-on">
+                    <i class="icon-calendar"></i>
+                </span>
+                <script>
+                    $("#startDate").datetimepicker({
+                        format : "yyyy-MM-dd",
+                        autoclose  : true,
+                        todayBtn : true,
+                        todayHighlight : true,
+                        startDate : "2017-03-19",
+                        endDate : "2018-01-01",
+                        startView : 2,
+                        minView : 2
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="input-append date" id="endDate" data-date="2013-02-21" data-date-format="yyyy-mm-dd">
+                <label for="endDays">结束日期:</label>
+                <input size="16" type="text" class="form-control" id="endDays" name="endDays" placeholder="End Day" readonly />
+                <span class="add-on">
+                    <i class="icon-remove"></i>
+                </span>
+                <span class="add-on">
+                    <i class="icon-calendar"></i>
+                </span>
+                <script>
+                    $("#endDate").datetimepicker({
+                        format : "yyyy-MM-dd",
+                        autoclose  : true,
+                        todayBtn : true,
+                        todayHighlight : true,
+                        startDate : "2017-03-19",
+                        endDate : "2018-01-01",
+                        startView : 2,
+                        minView : 2
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-primary" onClick="submitDay()">提交</a>
+            <a class="btn btn-default" onClick="clearDay()">清空</a>
         </div>
     </div>
-    <div class="form-group">
-        <div class="input-append date" id="endDate" data-date="2013-02-21" data-date-format="yyyy-mm-dd">
-            <label for="endDays">结束日期:</label>
-            <input size="16" type="text" class="form-control" id="endDays" name="endDays" placeholder="End Day" readonly />
-            <span class="add-on">
-                <i class="icon-remove"></i>
-            </span>
-            <span class="add-on">
-                <i class="icon-calendar"></i>
-            </span>
-            <script>
-				$("#endDate").datetimepicker({
-					format : "yyyy-MM-dd",
-					autoclose  : true,
-					todayBtn : true,
-					todayHighlight : true,
-					startDate : "2017-03-19",
-					endDate : "2018-01-01",
-					startView : 2,
-					minView : 2
-				});
-            </script>
-        </div>
-    </div>
-    <div class="form-group">
-        <a class="btn btn-primary" onClick="submitDay()">提交</a>
-        <a class="btn btn-default" onClick="clearDay()">清空</a>
-    </div>
-</div>
 </div>
 <div class="container-fluid">
 <br><hr><br>

@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+.form-horizontal .form-group{
+	margin-left:30px;
+	margin-right:10px;
+}
+.form-inline{
+	margin:20px;
+}
+a{
+	margin:20px;
+	width:100px;
+}
