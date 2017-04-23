@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>用户列表</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="css/buttons.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/userLisr.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <div class="page-header">
+        <h2>
+            用户列表<small> UserList</small>
+        </h2>
+    </div>
+</div>
+<div class="container-fluid">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>所属部门</th>
+                <th>角色</th>
+                <th>查看</th>
+                <th>角色编辑</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <i class="icon-user icon-large"></i>
+                </td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button onClick="openUserInfo('sss')" type="button" class="button button-tiny button-primary button-circle">
+                        <i class="icon-circle-blank"></i>
+                    </button>
+                </td>
+                <td>
+                    <button onClick="editUser('sss')" type="button" class="button button-tiny button-action button-circle">
+                        <i class="icon-refresh"></i>
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!--Modal -->
+<div class="modal fade" id="editUser" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">编辑用户角色: </h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                     <div class="form-group">
+                        <label for="userRole">选择角色:</label>
+                        <select id="userRole" class="form-control">
+                          <option value="1">员工</option>
+                          <option value="2">部门经理</option>
+                          <option value="3">管理员</option>
+                        </select>
+                      </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onClick="editUserRole()">提交</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
